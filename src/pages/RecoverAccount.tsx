@@ -37,7 +37,7 @@ const provinces = [
 
 const RecoverAccount = () => {
   const [nuit, setNuit] = useState("");
-  const [institution, setInstitution] = useState("");
+  const [institution, setInstitution] = useState("0");
   const [lastName, setLastName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [province, setProvince] = useState("");
@@ -103,18 +103,15 @@ const RecoverAccount = () => {
                 <Label htmlFor="institution" className="text-foreground font-medium">
                   Código da Instituição
                 </Label>
-                <Select value={institution} onValueChange={setInstitution} required>
-                  <SelectTrigger className="h-10 bg-card border-border focus:border-primary transition-base">
-                    <SelectValue placeholder="Seleccione a instituição" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {institutions.map((inst) => (
-                      <SelectItem key={inst.id} value={inst.id}>
-                        {inst.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Input
+                  id="institution"
+                  type="number"
+                  placeholder="Digite o código da instituição"
+                  value={institution}
+                  onChange={(e) => setInstitution(e.target.value)}
+                  required
+                  className="h-10 bg-card border-border focus:border-primary transition-base"
+                />
               </div>
 
               {/* Last Name */}
