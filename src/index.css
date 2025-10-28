@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Educar Blue - #00609e */
+    --primary: 200 100% 31%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 200 100% 45%;
+    
+    /* System Green - #0EB39C */
+    --secondary: 172 80% 38%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Photo Overlay Blue - #4E5B89 */
+    --overlay: 228 30% 43%;
+
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Action orange */
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 210 85% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(172, 80%, 38%) 0%, hsl(200, 100%, 31%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(25, 95%, 55%) 0%, hsl(35, 95%, 60%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsla(228, 30%, 43%, 0.6) 0%, hsla(228, 30%, 43%, 0.8) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px hsl(215 25% 15% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(215 25% 15% / 0.12);
+    
+    /* Transitions */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-overlay {
+    background: var(--gradient-overlay);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .transition-base {
+    transition: var(--transition-base);
+  }
+}
