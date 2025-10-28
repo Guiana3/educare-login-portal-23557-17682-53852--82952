@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { GraduationCap } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import logoEducar from "@/assets/logo-educar.png";
 import FamilyCarousel from "@/components/FamilyCarousel";
 
@@ -49,38 +49,38 @@ const RecoverAccount = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen max-h-screen overflow-hidden">
       {/* Family Carousel - Left Side */}
       <div className="hidden lg:flex lg:w-1/2">
         <FamilyCarousel />
       </div>
 
       {/* Recovery Form - Right Side */}
-      <div className="flex-1 flex items-center justify-center p-8 bg-background">
-        <div className="w-full max-w-md space-y-8">
+      <div className="flex-1 flex items-center justify-center p-6 bg-gradient-to-br from-background via-background to-primary/5">
+        <div className="w-full max-w-md space-y-4">
           {/* Logo and Header */}
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-3">
             <img
               src={logoEducar}
               alt="Logo Educar"
-              className="h-24 mx-auto"
+              className="h-20 mx-auto"
             />
             <div className="flex justify-center">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                <GraduationCap className="w-8 h-8 text-primary" />
-              </div>
+              <Badge variant="default" className="bg-primary text-primary-foreground px-4 py-1">
+                Bem vindo ao Educar
+              </Badge>
             </div>
-            <h1 className="text-3xl font-semibold text-primary">
+            <h1 className="text-2xl font-semibold text-primary">
               Activar / Recuperar Conta
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Preencha os dados abaixo para activar ou recuperar a sua conta
             </p>
           </div>
 
           {/* Recovery Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-3">
               {/* NUIT */}
               <div className="space-y-2">
                 <Label htmlFor="nuit" className="text-foreground font-medium">
@@ -94,7 +94,7 @@ const RecoverAccount = () => {
                   value={nuit}
                   onChange={(e) => setNuit(e.target.value.replace(/\D/g, ""))}
                   required
-                  className="h-12 bg-card border-border focus:border-primary transition-base"
+                  className="h-10 bg-card border-border focus:border-primary transition-base"
                 />
               </div>
 
@@ -104,7 +104,7 @@ const RecoverAccount = () => {
                   Código da Instituição
                 </Label>
                 <Select value={institution} onValueChange={setInstitution} required>
-                  <SelectTrigger className="h-12 bg-card border-border focus:border-primary transition-base">
+                  <SelectTrigger className="h-10 bg-card border-border focus:border-primary transition-base">
                     <SelectValue placeholder="Seleccione a instituição" />
                   </SelectTrigger>
                   <SelectContent>
@@ -129,7 +129,7 @@ const RecoverAccount = () => {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   required
-                  className="h-12 bg-card border-border focus:border-primary transition-base"
+                  className="h-10 bg-card border-border focus:border-primary transition-base"
                 />
               </div>
 
@@ -144,7 +144,7 @@ const RecoverAccount = () => {
                   value={birthDate}
                   onChange={(e) => setBirthDate(e.target.value)}
                   required
-                  className="h-12 bg-card border-border focus:border-primary transition-base"
+                  className="h-10 bg-card border-border focus:border-primary transition-base"
                 />
               </div>
 
@@ -154,7 +154,7 @@ const RecoverAccount = () => {
                   Província de Nascimento
                 </Label>
                 <Select value={province} onValueChange={setProvince} required>
-                  <SelectTrigger className="h-12 bg-card border-border focus:border-primary transition-base">
+                  <SelectTrigger className="h-10 bg-card border-border focus:border-primary transition-base">
                     <SelectValue placeholder="Seleccione a província" />
                   </SelectTrigger>
                   <SelectContent>
@@ -170,15 +170,14 @@ const RecoverAccount = () => {
 
             <Button
               type="submit"
-              className="w-full h-12 text-base font-semibold shadow-medium hover:shadow-soft bg-secondary hover:bg-secondary/90 text-secondary-foreground"
-              size="lg"
+              className="w-full h-10 text-base font-semibold shadow-medium hover:shadow-soft bg-secondary hover:bg-secondary/90 text-secondary-foreground"
             >
               Validar
             </Button>
           </form>
 
           {/* Footer */}
-          <div className="text-center pt-6 border-t border-border">
+          <div className="text-center pt-4 border-t border-border">
             <p className="text-sm text-muted-foreground">
               Digite as credenciais para entrar no sistema.{" "}
               <a

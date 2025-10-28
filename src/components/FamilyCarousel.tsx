@@ -7,11 +7,11 @@ import familyImage2 from "@/assets/family-image-2.png";
 const familySlides = [
   {
     image: familyImage1,
-    quote: "Juntos construímos o futuro através da educação e do amor familiar",
+    quote: "Registe aqui a sua escola para começar a transformar a educação.",
   },
   {
     image: familyImage2,
-    quote: "Cada conquista académica é uma vitória de toda a família",
+    quote: "Juntos construímos o futuro através da educação familiar.",
   },
 ];
 
@@ -49,10 +49,13 @@ const FamilyCarousel = () => {
                 alt={`Família em momento educacional ${index + 1}`}
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/30 via-blue-600/40 to-purple-700/50" />
               <div className="absolute inset-0 gradient-overlay" />
               <div className="relative z-10 flex items-end justify-start h-full p-8 pb-24">
                 <p className="text-white text-lg leading-relaxed font-light max-w-xl">
-                  {slide.quote}
+                  <span className="text-secondary text-xl font-medium">"</span>
+                  {slide.quote.replace(/"/g, '')}
+                  <span className="text-secondary text-xl font-medium">"</span>
                 </p>
               </div>
             </CarouselItem>
